@@ -62,7 +62,7 @@ function init() {
       type: 'list',
       name: 'license',
       message: questions[6],
-      choices: ['Apache', 'MIT', 'GPL'],
+      choices: ['Apache', 'MIT', 'GPL','None'],
     },
     {
       type: 'input',

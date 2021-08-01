@@ -1,4 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// constant value with the license information
 const mitLcns = {
   badge: 'https://img.shields.io/badge/License-MIT-red',
   link: 'https://opensource.org/licenses/MIT',
@@ -60,52 +60,48 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.`,
 }
 
-// If there is no license, return an empty string
+// three function that return the licence information to be generator
 function renderLicenseBadge(license) {
   let badge = ''
-  if (!license){
+  if (license === 'None'|| !license){
     return '';
   }else{
     switch(license){
       case 'MIT':
-        badge = mitLcns.badge;
+        badge = '![badge]('+ mitLcns.badge + ')';
         break;
       case 'Apache':
-        badge = apacLcns.badge;
+        badge = '![badge]('+ apacLcns.badge + ')';
         break;
       case 'GPL':
-        badge = gplLcns.badge;
+        badge = '![badge]('+ gplLcns.badge + ')';
     }
     return badge ;
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
   let link = ''
-  if (!license){
+  if (license === 'None'|| !license){
     return '';
   }else{
     switch(license){
       case 'MIT':
-        link = mitLcns.link;
+        link = 'Link to license:' + mitLcns.link;
         break;
       case 'Apache':
-        link = apacLcns.link;
+        link = 'Link to license:' + apacLcns.link;
         break;
       case 'GPL':
-        link = gplLcns.link;
+        link = 'Link to license:' + gplLcns.link;
     }
     return link;
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 function renderLicenseSection(license) {
   let section = ''
-  if (!license){
+  if (license === 'None'|| !license){
     return '';
   }else{
     switch(license){
@@ -154,7 +150,7 @@ ${data.usage}
         
 ${section}        
 
-Link to license: ${link}       
+${link}       
 
 ## How to Contribute
         
@@ -164,11 +160,11 @@ ${data.contribution}
         
 ${data.test}
 
-##Questions
+## Questions
 
 Link to my to my Github profile: https://github.com/${data.username}
 For any other information, contact me through: ${data.email} 
-`;
+`
 }
 
 module.exports = generateMarkdown;
